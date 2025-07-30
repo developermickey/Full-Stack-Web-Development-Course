@@ -22,9 +22,6 @@
         width: 50px;
       }
     </style>
-   
-
-
   </head>
 
   <body>
@@ -36,22 +33,27 @@
   </body>
 
   <script>
-      const grandParentElement = document.getElementById("grandParent");
-      const parentElement = document.getElementById("parent");
-      const childElement = document.getElementById("child");
+    const grandParent = document.getElementById("grandParent");
+    const parent = document.getElementById("parent");
+    const child = document.getElementById("child");
+    //   const body = document.querySelector('body')
 
-      grandParentElement.addEventListener("click", () => {
-          console.log("Grand Parent Clicked");
-      }, true)
+    grandParent.addEventListener("click", function (e) {
+      console.log("Grand Parent Clicked");
+      e.stopPropagation()
+    } , true);
 
+    parent.addEventListener("click", function () {
+      console.log(" Parent Clicked");
+    });
 
-      parentElement.addEventListener("click", () => {
-        console.log("Parent Cliked");
-      }, true)
+    child.addEventListener("click", function (e) {
+      console.log("child Clicked");
+     
+    });
 
-      childElement.addEventListener("click", () => {
-        console.log("Child Clicked")
-      }, true)
-
+    //   body.addEventListener('click' , function(){
+    //     console.log('body clicked')
+    //   })
   </script>
 </html>
