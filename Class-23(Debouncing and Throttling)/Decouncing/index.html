@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing in JS</title>
+</head>
+
+<body>
+
+    <div>
+        <input type="text" id="search">
+
+    </div>
+
+    <p class="para"></p>
+
+
+
+
+
+    <script>
+        let searchInput = document.getElementById("search");
+        let para = document.querySelector(".para");
+
+        function proccesInput() {
+            para.innerText = searchInput.value;
+
+        }
+
+
+        function debaounce(func, wait) {
+            let timeout;
+
+            return function executedFunc() {
+                const later = function () {
+                    clearTimeout(timeout);
+                    func()
+                }
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            }
+        }
+
+        searchInput.addEventListener("keydown", debaounce(proccesInput, 2000))
+    </script>
+
+</body>
+
+</html>
