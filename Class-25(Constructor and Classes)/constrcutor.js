@@ -1,4 +1,4 @@
-
+// Constructor Funcation
 
 function Pizza(toppingsPara, sizePara, crustPara){
     this.toppings = toppingsPara
